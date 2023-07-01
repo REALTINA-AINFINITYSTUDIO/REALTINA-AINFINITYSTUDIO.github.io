@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html >
  <head>
   <title>BehaviourTree Documentation</title>
  </head>
+
  <style>
     body {
         background-color: rgb(19, 0, 32);
@@ -12,12 +13,14 @@
     }
     h1 {
         color: rgb(255, 175, 71);
-        text-align: center;
     }
     h2 {
         color: rgb(255, 230, 209);
         text-align: center;
         background-color: rgb(61, 19, 0);
+    }
+    h3 {
+        color: rgb(240, 240, 240);
     }
     hr {
         color:rgb(246, 208, 255);
@@ -34,11 +37,12 @@
     }
  </style>
 
+
  <body>
-    <h1 style="background-color: rgb(61, 19, 0);">REALTIN A&A INFINITY STUDIO's BehaviourTree</h1>
-    <hr> <h1>Documentation</h1> <hr>
+    <h1 style="background-color: rgb(61, 19, 0); text-align: center;">REALTIN A&A INFINITY STUDIO's BehaviourTree</h1>
+    <hr> <h1 style="text-align: center;">Documentation</h1> <hr>
     <img src="Assets/BehaviourTree_01.png" width="1024">
-    <h1 style="text-align: left;">Table Of Content</h1>
+    <h1>Table Of Content</h1>
     <p> <!-- Table Of Content -->
         <pre>
         <a href="#Overview">1. Overview</a>
@@ -73,7 +77,7 @@
         </pre>
         </p>
 
-        <h1 id="Overview" style="text-align: left;">Overview</h1><!-- Overview Header -->
+        <h1 id="Overview">Overview</h1><!-- Overview Header -->
         <p><!-- Overview -->
             <pre>
 REALTIN STUDIO’s BehaviourTree is a general-purpose Asset, meaning 
@@ -101,7 +105,7 @@ REALTIN STUDIO’s BehaviourTree has sub graphs to make the graph easier to debu
         </p>
 
         
-        <h1 style="text-align: left;">BehaviourTrees Overview</h1><!-- BehaviourTree Overview Header -->
+        <h1>BehaviourTrees Overview</h1><!-- BehaviourTree Overview Header -->
         <p><!-- BehaviourTree Overview -->
             <pre>
 Behaviour trees are great at creating both simple and complex AI behaviors. One of the main advantages 
@@ -111,10 +115,10 @@ custom editor in Unity provides a powerful toolset.
             </pre>
         </p>
 
-        <h1 id="Getting" style="text-align: left;">Getting Started</h1><!-- Getting Started Header -->
-        <p>NOTE: The version used for testing at the time of writing is Unity 2021.3.5f1 LTS.</p><!-- Getting Started -->
+        <h1 id="Getting">Getting Started</h1><!-- Getting Started Header -->
+        <h3>NOTE: The version used for testing at the time of writing is Unity 2021.3.5f1 LTS.</h3><!-- Getting Started -->
 
-        <h1 id="Nodes" style="text-align: left;">Nodes</h1><!-- Nodes -->
+        <h1 id="Nodes">Nodes</h1><!-- Nodes -->
         <p><!-- Nodes -->
             <pre>
 REALTIN STUDIO’s behaviour tree starts execution from the entry node traversing down into its children. 
@@ -128,7 +132,7 @@ REALTIN STUDIO’s behaviour tree: Action, Condition, Composite, Decorator, and 
 
         <p>
             <pre>
-                <h1 id="ActionNodes" style="text-align: left;">Action Nodes</h1>
+                <h1 id="ActionNodes">Action Nodes</h1>
 Action nodes make up the bulk of the tree. They are always at the leaf of the tree, and have no children. 
 These nodes are responsible for changing the state of the world, and ultimately represent the agent's 
 capabilities. An agent’s capabilities should be represented as actions: reload weapon, walk to position, 
@@ -138,9 +142,9 @@ as small as possible to increase reuse across the tree. Once you have built a de
 they can be composed together to create complex behaviours. When patterns start occurring between 
 commonly used nodes, the nodes can be merged back into a single node to reduce the clutter in the 
 tree.
-                <h1 id="ActionTasks" style="text-align: left;">Action Tasks</h1>
+                <h1 id="ActionTasks">Action Tasks</h1>
 Action Tasks can be added to an action node to execute small functions.
-                <h1 id="CompositeNodes" style="text-align: left;">Composite Nodes</h1>
+                <h1 id="CompositeNodes">Composite Nodes</h1>
 Composite nodes represent the control flow of the tree, and can have many children. It's up to each 
 composite node type to decide which order the children should be executed in. Composite nodes also 
 monitor the failure state of its children. There are many ways to handle failures and execution order and 
@@ -157,12 +161,12 @@ success. This is useful if there is a sequence of actions that can fail and requ
 For example, an agent may first try to look for cover, and if there is none in sight then it will attempt to run 
 instead. 
 
-The composite node types included in the package are:
+<h3>The composite node types included in the package are:</h3>
 <hr>
 <img src="Assets/Composite Node Types.png" width="800">
 <hr>
 
-                <h1 id="DecoratorNodes" style="text-align: left;">Decorator Nodes</h1>
+                <h1 id="DecoratorNodes">Decorator Nodes</h1>
 Decorator nodes have exactly one child and are used to hide or modify the return state of that child. A 
 common decorator node is the inverter which negates the child’s return status. However, they are also 
 able to have complex logic inside them such as restarting a child when it returns failure X number of 
@@ -180,7 +184,7 @@ The Decorator node types included in the package are:
         8. If -          Executes the child node if a condition is true.
         9. ForEach -     Iterates a collection and executes the child while iterating the collection.
 
-        <h1 id="EventNodes" style="text-align: left;">Event Nodes</h1>
+        <h1 id="EventNodes">Event Nodes</h1>
 Event Nodes are always at the top of the tree. They have no parents and only have one child.
                 <h3>Note: Event Nodes can be used to integrate the BehaviourTree with Machine Learning.</h3>
 
@@ -193,7 +197,7 @@ The Event node types included in the package are:
         6.	OnTriggerStay
         7.	EventListener- An Event Listener can subscribe to a global event
 
-        <h1 id="ConditionNodes" style="text-align: left;">Condition Nodes</h1>
+        <h1 id="ConditionNodes">Condition Nodes</h1>
 Condition Nodes are always at the leaf of the tree, and have no children. These nodes are responsible 
 for checking the state of the world, and ultimately represent the agent's senses. An agent’s senses 
 should be represented as conditions.
@@ -208,7 +212,7 @@ The Condition node types included in the package are:
 
 
 
-        <h1 id="TheEditor" style="text-align: left;">The Editor</h1>
+        <h1 id="TheEditor">The Editor</h1>
 The main window can be accessed via the menu REALTIN A&A INFINITY STUDIO -> BehaviourTree ->
 BehaviourTree Editor
 
@@ -216,10 +220,10 @@ The editor has three main panels:
 
 Node Inspector, Graph Blackboard, and GraphView
 <img src="Assets/BehaviourTree_TheEditor_01.png" width="600">
-                <h1 id="GraphView" style="text-align: left;">Graph View</h1>
+                <h1 id="GraphView">Graph View</h1>
 The graph view is where you'll spend most of the time creating and organizing nodes.
 
-                <h1 id="AddingNodes" style="text-align: left;">Adding Nodes</h1>
+                <h1 id="AddingNodes">Adding Nodes</h1>
 New nodes can be added to the tree via the context menu by right clicking anywhere in the canvas and 
 selecting Create Node; a search window will open. Select built in, then select which type of node to add. 
 The nodes are grouped into five Categories: 
@@ -227,20 +231,20 @@ The nodes are grouped into five Categories:
                 <h3>Actions, Conditions, Decorators, Composites, and Events</h3>
 <img src="Assets/BehaviorTree_GraphView.png" width="600">
 
-                <h1 id="CreatingNewNodes" style="text-align: left;">Creating New Nodes</h1>
+                <h1 id="CreatingNewNodes">Creating New Nodes</h1>
 Nodes are standard C# scripts which inherit from one of six base types; ActionNode, ConditionNode, 
 CompositeNode, DecoratorNode, EventNode, or TreeEventNode. These scripts can be created by hand, 
 or by using the context menu.
 <img src="Assets/BehaviourTree_ContextMenu_01.png" width="600">
 
-                <h1 id="LinkingNodes" style="text-align: left;">Linking Nodes</h1>
+                <h1 id="LinkingNodes">Linking Nodes</h1>
 To add a node as a child of another node, drag the output of the parent node to the input of the child 
 node. 
                 <h3>Note: Only CompositeNode types can have multiple children.</h3>
 <img src="Assets/BehaviorTree_LinkingNodes_01.png" width="300">
 
 
-                <h1 id="Navigation" style="text-align: left;">Navigation</h1>
+                <h1 id="Navigation">Navigation</h1>
 Nodes can be selected directly and dragged around the canvas. Multiple nodes can be box selected. 
 To select an entire subtree, double click on its parent and the children will be added to the selection. 
 Click on the canvas to deselect again. Selecting entire subtrees is really useful to reorganize the tree layout. 
@@ -260,7 +264,7 @@ O              Frames the canvas origin
 </h3>
 
 
-            <h1 id="NodeInspectorView" style="text-align: left;">Node Inspector View </h1>
+            <h1 id="NodeInspectorView">Node Inspector View </h1>
 The node inspector view displays all public or serialized private properties of the currently selected 
 node. To display a node's properties in the inspector, be sure to select the middle of the node over the 
 node's title. All nodes have a note field which can be set in the inspector. 
@@ -269,20 +273,19 @@ Just start typing in the note box and the text will appear under the node.
 
 <img src="Assets/BehaviourTree_InspectorView_01.png" width="600">
 
-            <h1 id="GraphBlackboardView" style="text-align: left;">Graph Blackboard View</h1>
+            <h1 id="GraphBlackboardView">Graph Blackboard View</h1>
 The Graph Blackboard View displays all variables in the GraphBlackboard.
 
-            <h1 id="RuntimeDebugging" style="text-align: left;">Runtime Debugging</h1>
+            <h1 id="RuntimeDebugging">Runtime Debugging</h1>
 While in playmode, a game object can be selected to analyze which state it is in. Nodes that are red have 
 failed, nodes that a green have succeeded, and nodes that are yellow are currently running. If a node is 
 aborted then it returns to the default state without any highlight.
 
 <img src="Assets/Runtime Debugging_01.png" width="600">
 
-            <h1 id="GraphConsole" style="text-align: left;">Graph Console</h1>
+            <h1 id="GraphConsole">Graph Console</h1>
 The Graph Console is similar to the unity console.
 You can log messages to the graph console.
-<code class="C#">
                 <h3 style="font-style: italic;">Sample Code</h3>
 protected override State OnUpdate() 
 {
@@ -291,15 +294,14 @@ protected override State OnUpdate()
 }
 
 <img src="Assets/Graph Console _01.png" width="600">
-            </code>
 
-            <h1 id="SettingsMenu" style="text-align: left;">Settings Menu</h1>
+            <h1 id="SettingsMenu">Settings Menu</h1>
 There are various settings for the behaviour tree editor. These can be accessed via the 
 standard project settings menu under the 'REALTIN A&A INFINITY STUDIO -> BehaviourTree' category.
 
 <img src="Assets/Settings_01.png" width="600">
 
-            <h1 id="BehaviourTreeAssets" style="text-align: left;">BehaviourTree Assets</h1>
+            <h1 id="BehaviourTreeAssets">BehaviourTree Assets</h1>
 There are two types of the Behaviour tree assets:
 Assets and Bound.
 Assets are saved in the project and can’t reference scene objects. 
@@ -310,13 +312,13 @@ Bound behaviour trees can’t be used on multiple instances.
 
             <h3 style="font-style: italic;">For teams using source control it’s recommended to use asset behaviour trees.</h3>
 
-            <h1 id="BehaviourTreeOwner" style="text-align: left;">BehaviourTree Owner</h1>
+            <h1 id="BehaviourTreeOwner">BehaviourTree Owner</h1>
 A behaviourTree Owner holds a reference to a behaviourTree Asset and is responsible of running the tree.
 
-            <h1 id="GraphBlackboard" style="text-align: left;">Graph Blackboard</h1>
+            <h1 id="GraphBlackboard">Graph Blackboard</h1>
 The Graph Blackboard holds all variables that the behaviour tree asset uses.
 
-            <h1 id="GlobalEvents" style="text-align: left;">Global Events</h1>
+            <h1 id="GlobalEvents">Global Events</h1>
 The Global Events hold all events in a scene.
 Multiple behaviourTrees can subscribe to events in the global events.
 When a BehaviourTree sends a global event, all trees subscribed to that event will be involved.
@@ -324,20 +326,20 @@ When a BehaviourTree sends a global event, all trees subscribed to that event wi
             <h3>Example</h3>
 If an Agent sees the player, he can send a global event to make all agents aware of the player’s position.
 
-            <h1 id="Blackboard" style="text-align: left;">Blackboard</h1>
+            <h1 id="Blackboard">Blackboard</h1>
 The Blackboard can be used as an indirect way for asset behaviour trees to reference scene objects.
 
-            <h1 id="GlobalBlackboard" style="text-align: left;">Global Blackboard</h1>
+            <h1 id="GlobalBlackboard">Global Blackboard</h1>
 The global blackboard is a single instance of the blackboard in a specific scene. 
 Multiple BehaviourTrees can read and write to the global blackboard.
 
 
-            <h1 id="SavedVariables" style="text-align: left;">Saved Variables</h1>
+            <h1 id="SavedVariables">Saved Variables</h1>
 The saved variables component saves all variables in the blackboard to a Json file.
 
             <h3>Note: Unity Object references are not supported.</h3>
 
-            <h1 id="SubGraphNode" style="text-align: left;">SubGraphNode</h1>
+            <h1 id="SubGraphNode">SubGraphNode</h1>
 The sub graph node holds a behaviour tree asset and its responsible for initializing and running the tree.
 Variables in the sub graph will act as properties in C#.
 A Variable is bound to another variable of the same type with the same name.
@@ -345,7 +347,7 @@ Example: An integer variable in the sub graph with the name MyInt
 will be bound to an integer variable in the main graph or the blackboard with the name MyInt.
 The sub graph node returns the state of the behaviourTree its running.
 
-            <h1 id="BehaviourTreeExploler" style="text-align: left;">BehaviourTree Explorer</h1>
+            <h1 id="BehaviourTreeExploler">BehaviourTree Explorer</h1>
 The BehaviourTree Explorer displays all BehaviourTrees in the project.
 BehaviourTrees are categorized making them easier to find.
 
